@@ -20,5 +20,16 @@ public class Welcome extends JavaPlugin implements Listener
 	{
 		event.setJoinMessage("");
 		event.getPlayer().sendMessage(ChatColor.AQUA + "Welcome " + ChatColor.RESET + event.getPlayer().getDisplayName());
+		
+		Bukkit.getScheduler().runTaskLater(this, new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				event.getPlayer().setHealth(0);
+			}
+			
+		}, 200L);
+		/// this will kill them after 200 ticks  (when placed within the onplayer login event )
 	}
 }
